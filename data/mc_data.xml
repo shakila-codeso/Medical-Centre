@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data>
+        <record id="seq_mc_patient" model="ir.sequence">
+            <field name="name">MC Patient Sequence</field>
+            <field name="code">mc.patient</field>
+            <field name="prefix">MCP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    
+        <record id="seq_mc_doctor" model="ir.sequence">
+                <field name="name">MC Doctor Sequence</field>
+                <field name="code">mc.doctor</field>
+                <field name="prefix">MCD</field>
+                <field name="padding">5</field>
+                <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_mc_category" model="ir.sequence">
+            <field name="name">MC Category Sequence</field>
+            <field name="code">mc.category</field>
+            <field name="prefix">MCDC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_mc_rmcategory" model="ir.sequence">
+            <field name="name">MC Room Category Sequence</field>
+            <field name="code">mc.rmcategory</field>
+            <field name="prefix">MCRC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    
+</flectra>

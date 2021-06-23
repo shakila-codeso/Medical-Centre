@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="mc_category_action" model="ir.actions.act_window">
+        <field name="name">Doctors Category</field>
+        <field name="res_model">mc.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>Create your first category</p>
+        </field>
+    </record>>
+    <menuitem
+        id="mc_category_menu"
+        name="Doctors Category"
+        parent="mc_doctor_sub_menu"
+        action="mc_category_action"
+        sequence="20"/>
+    
+    <record id="mc_category_view_tree" model="ir.ui.view">
+        <field name="name">mc.category.view.tree</field>
+        <field name="model">mc.category</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="seq_code" string="Serial Number"/>
+                <field name="doctors_category_code" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="mc_category_view_form" model="ir.ui.view">
+        <field name="name">mc.category.view.form</field>
+        <field name="model">mc.category</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="seq_code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name" />
+                        <field name="doctors_category_code" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</flectra>

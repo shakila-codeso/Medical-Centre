@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="mc_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">mc.patient</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>Create your first patient.</p>
+        </field>
+    </record>
+    <menuitem
+        id="mc_patient_root_menu"
+        name="Medical Centre"
+        sequence="10"/>
+    <menuitem
+        id="mc_patient_sub_menu"
+        name="Patients"
+        parent="mc_patient_root_menu"
+        sequence="10"/>
+    <menuitem
+        id="mc_patient_menu"
+        name="Patients"
+        action="mc_patient_action"
+        parent="mc_patient_sub_menu"
+        sequence="10"/>
+    
+    <record id="mc_patient_view_tree" model="ir.ui.view">
+        <field name="name">mc.patient.view.tree</field>
+        <field name="model">mc.patient</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="patient_code" />
+                <field name="name" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="contact" />
+                <field name="address" />
+                <field name="emg_name" string="Emergency Contact Person Name"/>
+                <field name="emg_relation" string="Relationship" />
+                <field name="emg_contact" string="Emergency Conduct"/>
+            </tree>
+        </field>
+    </record>
+    <record id="mc_patient_view_form" model="ir.ui.view">
+        <field name="name">mc.patient.view.form</field>
+        <field name="model">mc.patient</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="patient_code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="age" />
+                            <field name="gender" /> 
+                        </group>
+                        <group>
+                            <field name="name_with_initials" />
+                            <field name="contact" />
+                            <field name="address" />
+                        </group>
+                    </group>
+                    <p>Emergency Contact Details</p>
+                    <group>
+                        <field name="emg_name" />
+                        <field name="emg_relation" />
+                        <field name="emg_contact" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</flectra>

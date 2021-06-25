@@ -32,6 +32,22 @@
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
         </record>
+
+        <record id="seq_mc_doc_visit" model="ir.sequence">
+            <field name="name">MC Doctor Visit Sequence</field>
+            <field name="code">mc.docvisit</field>
+            <field name="prefix">MCDV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_mc_appointment" model="ir.sequence">
+            <field name="name">MC Appointment Sequence</field>
+            <field name="code">mc.appointment</field>
+            <field name="prefix">MCPA</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
     </data>
     
 </flectra>

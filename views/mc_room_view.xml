@@ -16,7 +16,7 @@
         id="mc_room_sub_menu"
         name="Rooms"
         parent="mc_patient_root_menu"
-        sequence="30"/>
+        sequence="50"/>
     <menuitem
         id="mc_room_menu"
         name="Rooms"
@@ -32,7 +32,7 @@
                 <field name="seq_rmcode" />
                 <field name="floor_no" />
                 <field name="room_no" />
-                <field name="name" />
+                <field name="room_name" />
             </tree>
         </field>
     </record>
@@ -53,6 +53,7 @@
                             <field name="room_no" />
                         </group>
                         <group>
+                            <field name="room_name" />
                             <field name="name" />
                         </group>
                     </group>

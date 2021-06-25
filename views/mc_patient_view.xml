@@ -11,15 +11,12 @@
             <p>Create your first patient.</p>
         </field>
     </record>
-    <menuitem
-        id="mc_patient_root_menu"
-        name="Medical Centre"
-        sequence="10"/>
+  
     <menuitem
         id="mc_patient_sub_menu"
         name="Patients"
         parent="mc_patient_root_menu"
-        sequence="10"/>
+        sequence="40"/>
     <menuitem
         id="mc_patient_menu"
         name="Patients"

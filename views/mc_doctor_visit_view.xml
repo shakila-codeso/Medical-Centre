@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="mc_docvisit_action" model="ir.actions.act_window">
+        <field name="name">Doctors Schedule</field>
+        <field name="res_model">mc.docvisit</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{"search_default_doctors_category_code":1}</field>
+        <field name="help" type="html">
+            <p>Create your first docvisit visiting session.</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="mc_patient_root_menu"
+        name="Medical Centre"
+        sequence="10"/>
+    <menuitem
+        id="mc_docvisit_sub_menu"
+        name="Doctors Schedule"
+        parent="mc_patient_root_menu"
+        sequence="10"/>
+    <menuitem
+        id="mc_docvisit_menu"
+        name="Doctors Schedule"
+        action="mc_docvisit_action"
+        parent="mc_docvisit_sub_menu"
+        sequence="10"/>
+    
+    <record id="mc_docvisit_view_tree" model="ir.ui.view">
+        <field name="name">mc.docvisit.view.tree</field>
+        <field name="model">mc.docvisit</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="seq_doc_visit_code" />
+                <field name="name" />
+                <field name="doctors_category_code" />
+                <field name="date" />
+                <field name="start_time" />
+                <field name="end_time" />
+                <field name="room_no" />
+                <field name="appointment_count" />
+                <field name="maximum_patients" />
+                <field name="resp_nurse" />
+            </tree>
+        </field>
+    </record>
+    <record id="mc_docvisit_view_form" model="ir.ui.view">
+        <field name="name">mc.docvisit.view.form</field>
+        <field name="model">mc.docvisit</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" states="draft"
+                    confirm="Are you sure that you need to confirm?"/>
+                    <button name="action_done" string="Mark as Done" type="object" class="btn-primary" states="confirm"/>
+                    <button name="action_draft" string="Set to draft" type="object" class="btn-primary" states="cancel"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft,confirm,done"
+                    confirm="Are you sure that you need to cancel?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done" option="['clickable':'1']"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="seq_doc_visit_code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="doctors_category_code" />
+                            <field name="room_no" />
+                            <field name="maximum_patients" />
+                            <field name="appointment_count" />
+                        </group>
+                        <group>
+                            <field name="date" />
+                            <field name="start_time" />
+                            <field name="end_time" />
+                            <field name="resp_nurse" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="docvisit_view_search" model="ir.ui.view">
+        <field name="name">mc.docvisit.view.search</field>
+        <field name="model">mc.docvisit</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <group>
+                    <filter string="category" name="doctors_category_code" context="{'group_by':'doctors_category_code'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</flectra>

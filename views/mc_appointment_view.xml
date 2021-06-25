@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="mc_appointment_action" model="ir.actions.act_window">
+        <field name="name">Patient Appointments</field>
+        <field name="res_model">mc.appointment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>Create your first patient appointment.</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="mc_appointment_sub_menu"
+        name="Patient Appointments"
+        parent="mc_patient_root_menu"
+        sequence="20"/>
+    <menuitem
+        id="mc_appointment_menu"
+        name="Patient Appointments"
+        action="mc_appointment_action"
+        parent="mc_appointment_sub_menu"
+        sequence="10"/>
+    
+    <record id="mc_appointment_view_tree" model="ir.ui.view">
+        <field name="name">mc.appointment.view.tree</field>
+        <field name="model">mc.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="reference_no" />
+                <field name="name" />
+                <field name="app_category" />
+                <field name="doc_name" />
+                <field name="date" />
+                <field name="start_time" />
+                <field name="end_time" />
+                <field name="room_no" />
+                <field name="resp_nurse" />
+            </tree>
+        </field>
+    </record>
+    <record id="mc_appointment_view_form" model="ir.ui.view">
+        <field name="name">mc.appointment.view.form</field>
+        <field name="model">mc.appointment</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" states="draft"
+                    confirm="Are you sure that you need to confirm?"/>
+                    <button name="action_done" string="Mark as Done" type="object" class="btn-primary" states="confirm"/>
+                    <button name="action_draft" string="Set to draft" type="object" class="btn-primary" states="cancel"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft,confirm,done"
+                    confirm="Are you sure that you need to cancel?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done" option="['clickable':'1']"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference_no" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="doc_name" />
+                            <field name="app_category" />
+                            <field name="resp_nurse" />
+                        </group>
+                        <group>
+                            <field name="date" />
+                            <field name="start_time" />
+                            <field name="end_time" />
+                            <field name="room_no" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</flectra>

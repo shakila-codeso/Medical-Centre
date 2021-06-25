@@ -16,7 +16,7 @@
         id="mc_doctor_sub_menu"
         name="Doctors"
         parent="mc_patient_root_menu"
-        sequence="20"/>
+        sequence="30"/>
     <menuitem
         id="mc_doctor_menu"
         name="Doctors"

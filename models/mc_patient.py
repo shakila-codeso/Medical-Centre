@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-
-
 from flectra import api, fields, models, _
 
 
 class McPatient(models.Model):
     _name = "mc.patient"
     _description = "Medical Centre Patient"
+    _rec_name = 'patient_code'
 
     name = fields.Char(string='Full Name', required=True,
         track_visibility='onchange')

@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from flectra import api, fields, models, _
+from flectra.exceptions import ValidationError, UserError
 
 
 class McDocVisit(models.Model):
     _name = "mc.docvisit"
     _description = "Doctors Visits Details"
+    _rec_name = "seq_doc_visit_code"
+    _order = "seq_doc_visit_code desc"
 
     name = fields.Many2one(comodel_name='mc.doctor', string='Doctor Name', required=True)
     date = fields.Date(string='Date', required=True)
@@ -40,6 +43,10 @@ class McDocVisit(models.Model):
 
     @api.model
     def create(self,vals):
+        if self.start_time < self.end_time:
+            pass
+        else:
+            raise ValidationError('Time Error')
         if vals.get('seq_doc_visit_code', _('New')) == _('New'):
             vals['seq_doc_visit_code'] = self.env['ir.sequence'].next_by_code('mc.docvisit') or _('New')
         line = super(McDocVisit, self).create(vals)

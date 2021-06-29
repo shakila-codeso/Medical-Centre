@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from flectra import api, fields, models, _
+from flectra.exceptions import ValidationError, UserError
 
 
 class McAppointment(models.Model):
     _name = "mc.appointment"
     _description = "Medical Centre Patient Appointment"
+    _order = "reference_no desc"
 
     name = fields.Many2one(comodel_name='mc.patient', string='Patient Name', required=True,
         track_visibility='onchange')
@@ -16,7 +18,7 @@ class McAppointment(models.Model):
     app_category = fields.Many2one(comodel_name='mc.category', related='doc_name.doctors_category_code', string='Category',
         required=True)
     resp_nurse = fields.Char(string='Responsible nurse name', related='doc_name.resp_nurse', required=True)
-    date = fields.Date(string='Date',related='doc_name.date', required=True)
+    date = fields.Date(string='Date', required=True)
     start_time = fields.Datetime(string='From', related='doc_name.start_time', required=True)
     end_time = fields.Datetime(string='To', related='doc_name.end_time', required=True)
     room_no = fields.Many2one(comodel_name='mc.room', related='doc_name.room_no',string='Venue', required=True)
@@ -38,6 +40,7 @@ class McAppointment(models.Model):
 
     @api.model
     def create(self,vals):
+        
         if vals.get('reference_no', _('New')) == _('New'):
             vals['reference_no'] = self.env['ir.sequence'].next_by_code('mc.appointment') or _('New')
         line = super(McAppointment, self).create(vals)

@@ -12,14 +12,15 @@
     'images' : [],
     'depends' : [],
     'data': [
-        'data\mc_data.xml',
-        'views\mc_patient_view.xml',
-        'views\mc_doctor_view.xml',
-        'views\mc_category_view.xml',
-        'views\mc_room_view.xml',
-        'views\mc_rmcategory_view.xml',
-        'views\mc_doctor_visit_view.xml',
-        'views\mc_appointment_view.xml'
+        'security/ir.model.access.csv',
+        'data/mc_data.xml',
+        'views/mc_patient_view.xml',
+        'views/mc_doctor_view.xml',
+        'views/mc_category_view.xml',
+        'views/mc_room_view.xml',
+        'views/mc_rmcategory_view.xml',
+        'views/mc_doctor_visit_view.xml',
+        'views/mc_appointment_view.xml'
     ],
     'demo': [],
     'qweb': [],

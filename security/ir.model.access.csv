@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mc_patient,access_mc_patient,model_mc_patient,,1,1,1,1
+access_mc_category,access_mc_category,model_mc_category,,1,1,1,1
+access_mc_room,access_mc_room,model_mc_room,,1,1,1,1
+access_mc_doctor,access_mc_doctor,model_mc_doctor,,1,1,1,1
+access_mc_rmcategory,access_mc_rmcategory,model_mc_rmcategory,,1,1,1,1
+access_mc_docvisit,access_mc_docvisit,model_mc_docvisit,,1,1,1,1
+access_mc_appointment,access_mc_appointment,model_mc_appointment,,1,1,1,1
